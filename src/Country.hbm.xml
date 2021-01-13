@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping package="naveen.entity">
+   <class name="com.naveen.secondlevelcache.Country" table="COUNTRY">
+
+	<id name="countryId" type="int" column="country_id">
+		<generator class="native"/>
+		<!-- <generator class="assigned"/> -->
+	</id>
+
+	<property name="countryName" type="string" column="country_Name"/>
+   </class>
+    
+</hibernate-mapping>

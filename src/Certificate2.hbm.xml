@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+	
+	<class name="com.naveen.manytomany.Certificate2" table="CERTIFICATE2">
+		<id name="certificateId" type="int" column="certificate_id">
+			<generator class="native" />
+		</id>
+		<property name="certificateName" type="string" column="certificate_name"/>
+
+		 <set name="employees" cascade="all" table="EMP_CERT">
+		 	<key column="certificate_id" not-null="true"/>
+		 	<many-to-many class="com.naveen.manytomany.Employee2" column="employee_id"/>
+		 </set>
+	</class>
+
+</hibernate-mapping>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+	<class name="com.naveen.manytoone.Customer" table="CUSTOMER">
+		<id name="id" type="int" column="id">
+			<generator class="native" />
+		</id>
+		<property name="fName" type="string" column="first_name"/>
+		<property name="lName" type="string" column="last_name"/>
+		<property name="salary" type="double" column="salary"/>
+		
+		<!-- if you remove unique="true" that will be calle many to one relation -->
+		<many-to-one name="address" column="address" unique="true"/>
+	</class>
+
+	<class name="com.naveen.manytoone.Address" table="ADDRESS">
+		<id name="id" type="int" column="id">
+			<generator class="native"/>
+		</id>
+		
+		<property name="streetName" type="string" column="street_name"/>
+		<property name="cityName" type="string" column="city_name"/>
+		<property name="stateName" type="string" column="state_name"/>
+		<property name="zipCode" type="string" column="zipcode"/>
+		
+	</class>
+
+
+
+</hibernate-mapping>

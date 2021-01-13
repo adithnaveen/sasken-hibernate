@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+	
+	<class name="com.naveen.inheritence.Product" abstract="true">
+		<id name="pId" type="int" column="pid">
+			<generator class="increment" />
+		</id>
+		
+		
+		<property name="pName" type="string" column="p_name"/>
+		<property name="pDesc" type="string" column="p_desc" />
+		<property name="pPrice" type="double" column="p_price" />
+		
+		<union-subclass name="com.naveen.inheritence.Television">
+			<property name="size"/>
+			<property name="screenType" column="screen_type" length="15"/>
+			<property name="resolution" length="20"/>
+		</union-subclass>
+		
+		<union-subclass name="com.naveen.inheritence.Cellphone">
+			<property name="type"  length="30"/>
+			<property name="os" length="20"/>
+			<property name="connectivity" length="10"/>
+		</union-subclass>
+		
+	</class>
+
+
+</hibernate-mapping>
